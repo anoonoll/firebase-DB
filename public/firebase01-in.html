@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meat charset="utf-8" />
+    <title>Using FirebaseUI Auth, on the Web</title>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBM4wnow8KBd2vjdlWfIyARAqp0shovcaE",
+        authDomain: "express-6b16e.firebaseapp.com",
+        databaseURL: "https://express-6b16e.firebaseio.com",
+        projectId: "express-6b16e",
+        storageBucket: "express-6b16e.appspot.com",
+        messagingSenderId: "711055930536",
+        appId: "1:711055930536:web:35e75a374dfbfe077d3e9d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+  </head>
+  <body>
+    <h1 align="center">Singed-In: Firebase Auth Quickstart Demo</h1>
+    <h1 id="status">Not Sign-in.</h1>
+
+    <script type="text/javascript">
+     firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+     firebase.auth().onAuthStateChanged( (user) => {
+         let status = document.querySelector('#status');
+         if(user) {
+             console.log(user);
+             status.innerText = 'Singed-in';
+         } else {
+             status.innerText = 'NOT Singed-in';
+         }
+
+     } );
+    
+    </script>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="/__/firebase/6.2.0/firebase-auth.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-firestore.js"></script>
+
+  </body>
+</html>
