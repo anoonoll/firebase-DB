@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="../style.css">
     <title>[firebase] my-sample-project</title>
 
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
     
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -93,6 +96,17 @@
 
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       ui.start('#firebaseui-auth-container', uiConfig);
+
+       //画像が追加されたら
+      $(function(){
+        $('#myImage').on('change', function (e) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $("#preview").attr('src', e.target.result);
+          }
+          reader.readAsDataURL(e.target.files[0]);
+        });
+      });
     </script>
   </head>
 
@@ -117,6 +131,9 @@
             <p>名前　　　　　　　<input type="text"></p>
             <hr>
             <p>メールアドレス　　<input type="email"></p>
+            <hr>
+            <p>トップ画像<input type="file" id="myImage" accept="image/*"></p>
+            <img id="preview" width="100px" height="100px">
             <p class="button"><input type="button" value="登録"></p>
           </div>
         </form>
@@ -131,5 +148,6 @@
     <footer>
       <p><small>2020 by Hana</small></p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </body>
 </html>
