@@ -41,6 +41,14 @@ form {
     margin: 0 auto;
 }
 
+#preview {
+    background-position: center center;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.123);
+    width: 100px;
+    height: 100px;
+}
+
 .center {
     text-align: center;
     margin: 0 auto;
