@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <title>[firebase] my-sample-project</title>
 
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
@@ -48,9 +49,6 @@
 
             // 読込中で表示しているローダー要素を消す
             document.getElementById('loader').style.display = 'none';
-
-            // 読み込み後に表示させたい
-            document.getElementById('login').textContent = '登録する';
             }
           },
           // リダイレクトではなく、ポップアップでサインインフローを表示
@@ -99,9 +97,39 @@
   </head>
 
   <body>
-    <div id="login"></div>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+    <header>
+      <p>firebaseでアプリ作ってみた</p>
+    </header>
+      
+    <div class="main">
+      <div class="top">
+        <div id="loader">Loading...</div>
+        <div class="company-name">VOGUE</div>
+        <div class="description">以下の項目に記入の上、「登録」ボタンを押して下さい。</div>
+        <div id="login"></div>
+      </div>
+  
+      <div class="flex">
+      <div class="article">
+        <form>
+          <div class="center">
+            <hr>
+            <p>名前　　　　　　　<input type="text"></p>
+            <hr>
+            <p>メールアドレス　　<input type="email"></p>
+            <p class="button"><input type="button" value="登録"></p>
+          </div>
+        </form>
+      </div> 
 
+      <div class="side">
+        <div id="firebaseui-auth-container"></div>
+      </div>
+    </div>
+    </div>
+
+    <footer>
+      <p><small>2020 by Hana</small></p>
+    </footer>
   </body>
 </html>

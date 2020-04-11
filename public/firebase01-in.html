@@ -2,6 +2,7 @@
 <html>
   <head>
     <meat charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <title>Using FirebaseUI Auth, on the Web</title>
 
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
@@ -34,15 +35,38 @@
   </head>
 
   <body>
-    <h1 align="center">Singed-In: Firebase Auth Quickstart Demo</h1>
-    <h1 id="status">Not Sign-in.</h1>
+    <header>
+      <p>firebaseでアプリ作ってみた</p>
+    </header>
+      
+    <div class="main">
+      <div class="top">
+        <h1 align="center">Singed-In: Firebase Auth Quickstart Demo</h1>
+        <h1 id="status">Not Sign-in.</h1>
+        <h1 id="user_about"></h1>
+        <h1 id="user"></h1>
+      </div>
+    </div>
+  
+    <footer>
+      <p><small>2020 by Hana</small></p>
+    </footer>
 
     <script type="text/javascript">
-     firebase.auth().onAuthStateChanged( (user) => {
+    var name, email, photoUrl, uid, emailVerified;
+
+    firebase.auth().onAuthStateChanged( (user) => {
          let status = document.querySelector('#status');
+         let user_about = document.querySelector('#user_about');
          if(user) {
-             console.log(user);
-             status.innerText = 'Singed-in';
+            name = user.displayName;
+            email = user.email;
+            photoUrl = user.photoURL;
+            emailVerified = user.emailVerified;
+            uid = user.uid;    
+            user_about.innerText = 'name = ' + name + ',email = ' + email+ ',photo = ' + photoUrl + ',emailVerified = ' + emailVerified + ',uid = ', uid;  
+            status.innerText = 'Singed-in';
+            document.querySelector('#user').innerHTML = '<img src="' + photoUrl +'">';
          } else {
              status.innerText = 'NOT Singed-in';
          }

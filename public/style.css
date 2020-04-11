@@ -1,0 +1,84 @@
+* {
+    margin :0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    padding: 20px 0;
+    background-color: rgb(250, 170, 51);
+    text-align: center;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: rgb(250, 170, 51);
+}
+
+.main {
+    margin: auto;
+    height: 666px;
+}
+
+.company-name {
+    font-family: cursive;
+    font-size: 50px;
+    padding: 40px 0 15px;
+}
+
+.top {
+    padding-bottom: 40px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+form {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.center p {
+    padding: 15px;
+}
+
+.article {
+    flex-basis: 60%;
+    padding-top: 1%;
+    padding-left: 10%;
+    box-sizing: border-box;
+}
+
+.side {
+    flex-basis: 40%;
+}
+
+form p {
+    text-align: left;
+}
+
+.button {
+    text-align: center;
+}
+
+hr {
+    opacity: 50%;
+}
+
+.button input {
+    border-radius: 50%;
+    padding: 10px 40px;
+}
+
+.login {
+    text-align: center;
+    width: 100px;
+}
