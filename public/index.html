@@ -45,8 +45,12 @@
             },
             uiShown: function() {
             // FirebaseUIウィジェット描画完了時のコールバック関数
+
             // 読込中で表示しているローダー要素を消す
             document.getElementById('loader').style.display = 'none';
+
+            // 読み込み後に表示させたい
+            document.getElementById('login').textContent = '登録する';
             }
           },
           // リダイレクトではなく、ポップアップでサインインフローを表示
@@ -95,6 +99,7 @@
   </head>
 
   <body>
+    <div id="login"></div>
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 
