@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meat charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../style2.css">
+    <title>Using FirebaseUI Auth, on the Web</title>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+          apiKey: "AIzaSyBM4wnow8KBd2vjdlWfIyARAqp0shovcaE",
+          authDomain: "express-6b16e.firebaseapp.com",
+          databaseURL: "https://express-6b16e.firebaseio.com",
+          projectId: "express-6b16e",
+          storageBucket: "express-6b16e.appspot.com",
+          messagingSenderId: "711055930536",
+          appId: "1:711055930536:web:35e75a374dfbfe077d3e9d"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="left">
+          <p>ありがとう</p>
+      </div>
+      <div class="center">
+        <form>
+            <p>ホーム</p>
+            <p>message:<textarea id="message"></textarea><input type="submit" value="送信"></p>
+        </form>
+      </div>
+      <div class="right">
+          <p>ありがとう</p>
+      </div>
+    </div>
+ 
+    </script>
+  </body>
+</html>
