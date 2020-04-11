@@ -4,29 +4,6 @@
     <meat charset="utf-8" />
     <title>Using FirebaseUI Auth, on the Web</title>
 
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
-  </head>
-
-  <body>
-    <h1 align="center">Singed-In: Firebase Auth Quickstart Demo</h1>
-    <h1 id="status">Not Sign-in.</h1>
-
-    <script type="text/javascript">
-     firebase.auth().onAuthStateChanged( (user) => {
-         let status = document.querySelector('#status');
-         if(user) {
-             console.log(user);
-             status.innerText = 'Singed-in';
-         } else {
-             status.innerText = 'NOT Singed-in';
-         }
-
-     } );
-    
-    </script>
-
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -49,6 +26,29 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  </head>
+
+  <body>
+    <h1 align="center">Singed-In: Firebase Auth Quickstart Demo</h1>
+    <h1 id="status">Not Sign-in.</h1>
+
+    <script type="text/javascript">
+     firebase.auth().onAuthStateChanged( (user) => {
+         let status = document.querySelector('#status');
+         if(user) {
+             console.log(user);
+             status.innerText = 'Singed-in';
+         } else {
+             status.innerText = 'NOT Singed-in';
+         }
+
+     } );
+    
     </script>
   </body>
 </html>
