@@ -12,7 +12,7 @@
   <body>
     <h1 align="center">Singed-In: Firebase Auth Quickstart Demo</h1>
     <h1 id="status">Not Sign-in.</h1>
-    
+
     <script type="text/javascript">
      firebase.auth().onAuthStateChanged( (user) => {
          let status = document.querySelector('#status');
@@ -49,6 +49,6 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      </script>
+    </script>
   </body>
 </html>

@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[firebase] my-sample-project</title>
 
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
@@ -29,40 +25,41 @@
     firebase.initializeApp(firebaseConfig);
     </script>
 
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
     <script>
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-    var uiConfig = {
-        callbacks: {
-          signInSuccess: function(currentUser, credential, redirectUrl) {
-            // サインイン成功時のコールバック関数
-            // 戻り値で自動的にリダイレクトするかどうかを指定
-            return true;
+      var uiConfig = {
+          callbacks: {
+            signInSuccess: function(currentUser, credential, redirectUrl) {
+              // サインイン成功時のコールバック関数
+              // 戻り値で自動的にリダイレクトするかどうかを指定
+              return true;
+            },
+            uiShown: function() {
+            // FirebaseUIウィジェット描画完了時のコールバック関数
+            // 読込中で表示しているローダー要素を消す
+            document.getElementById('loader').style.display = 'none';
+            }
           },
-          uiShown: function() {
-          // FirebaseUIウィジェット描画完了時のコールバック関数
-          // 読込中で表示しているローダー要素を消す
-          document.getElementById('loader').style.display = 'none';
-        }
-    },
-    // リダイレクトではなく、ポップアップでサインインフローを表示
-    signInFlow: 'popup',
-    signInSuccessUrl: 'firebase01-in.html',
-    signInOptions: [
-      // サポートするプロバイダ(メールアドレス)を指定
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-      firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      firebase.auth.PhoneAuthProvider.PROVIDER_ID
-    ],
-    // Terms of service url.
-    tosUrl: ''
-  };
+          // リダイレクトではなく、ポップアップでサインインフローを表示
+          signInFlow: 'popup',
+          signInSuccessUrl: 'firebase01-in.html',
+          signInOptions: [
+            // サポートするプロバイダ(メールアドレス)を指定
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          ],
+          // Terms of service url.
+          tosUrl: ''
+      };
 
-  ui.start('#firebaseui-auth-container', uiConfig);
+      ui.start('#firebaseui-auth-container', uiConfig);
     </script>
   </head>
 
@@ -70,6 +67,5 @@
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 
-   
   </body>
 </html>
